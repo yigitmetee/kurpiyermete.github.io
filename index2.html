@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyun Sitesi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <button id="start-btn">Başla</button>
+        <div id="timer">30</div>
+        <div id="score">Puan: 0</div>
+        <div id="balloon-container"></div>
+        <div id="end-screen" class="hidden">
+            <h2>Oyun Bitti!</h2>
+            <p id="final-score">Puan: 0</p>
+            <button id="restart-btn">Yeniden Başla</button>
+        </div>
+        <div id="highscore-panel">
+            <h2>En Yüksek Puan: <span id="highscore">0</span></h2>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
