@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21 Blackjack Oyunu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>21 Blackjack Oyunu</h1>
+        <div id="balance-container">
+            <p>Bakiyeniz: $<span id="balance">1000</span></p>
+        </div>
+        <div id="bet-container">
+            <label for="bet-amount">Bahis Miktarınızı Seçin: $</label>
+            <input type="number" id="bet-amount" min="1" value="10">
+            <button id="place-bet-button">Bahis Yap</button>
+        </div>
+        <div id="dealer-area">
+            <h2>Krupiye'nin Kartları</h2>
+            <div id="dealer-cards" class="card-container"></div>
+        </div>
+        <div id="player-area">
+            <h2>Sizin Kartlarınız</h2>
+            <div id="player-cards" class="card-container"></div>
+        </div>
+        <div id="controls">
+            <button id="hit-button" disabled>Kart Çek</button>
+            <button id="stand-button" disabled>Kal</button>
+            <button id="new-game-button" style="display:none;">Yeni Oyun</button>
+        </div>
+        <div id="result-message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
