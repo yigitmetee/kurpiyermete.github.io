@@ -1,120 +1,104 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #2e8b57;
+    margin: 0;
 }
-
 .container {
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
+    background-color: white;
     padding: 20px;
-    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+h1 {
     color: #333;
 }
-
-#balance-container,
-#bet-container,
-#dealer-area,
-#player-area,
-#controls {
+#balance-container {
     margin-bottom: 20px;
 }
-
-#balance-container p {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-#bet-container label {
-    font-size: 1em;
-}
-
-#bet-container input {
-    padding: 5px;
-    font-size: 1em;
-    margin-right: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    background-color: #007bff;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-button:disabled {
-    background-color: #aaa;
-    cursor: not-allowed;
-}
-
-button:hover:not(:disabled) {
-    background-color: #0056b3;
-}
-
 .card-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    margin-bottom: 20px;
 }
-
 .card {
     width: 60px;
     height: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border: 1px solid #333;
     border-radius: 5px;
-    background-color: #fff;
-    font-size: 1.5em;
-    text-align: center;
+    background-color: white;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: black;
 }
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff9800;
+    color: white;
+}
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+#result-message {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+/* Önceki CSS kodlarınız... */
+#bet-container {
+    margin-bottom: 20px;
+}
+#bet-amount {
+    width: 60px;
+    padding: 5px;
+    margin-left: 10px;
+}
+#place-bet-button {
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+/* Önceki CSS kodlarınız... */
 
 #game-over-modal {
-    display: none;
+    display: none; /* Başlangıçta gizli */
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    text-align: center;
-    padding-top: 20%;
-    font-size: 1.5em;
-    border-radius: 8px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #000;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    z-index: 1000; /* Arka planda flu efekti için yüksek z-index */
+}
+
+#game-over-modal p {
+    margin: 0;
+    font-size: 18px;
 }
 
 #blur-background {
-    display: none;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-#controls {
-    text-align: center;
-}
-
-#new-game-button {
-    display: none;
+    background: rgba(0, 0, 0, 0.5); /* Flu arka plan için koyu renk */
+    backdrop-filter: blur(5px); /* Arka planı flu yapar */
+    display: none; /* Başlangıçta gizli */
+    z-index: 500; /* Modal'dan önce gelmesini sağlar */
 }
