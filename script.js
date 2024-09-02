@@ -1,4 +1,4 @@
-let balance = 200; // Güncellenmiş bakiye
+let balance = 200;
 let playerCards = [];
 let dealerCards = [];
 let deck = [];
@@ -111,26 +111,31 @@ function endGame(message) {
     document.getElementById('place-bet-button').disabled = false;
     updateDisplay();
 
-    // Bakiyeyi kontrol et ve gerekli mesajı göster
     if (balance <= 0) {
         showGameOverModal();
     }
 }
 
 function updateDisplay() {
-    document.getElementById('player-cards').innerHTML = '';
-    document.getElementById('dealer-cards').innerHTML = '';
+    const playerCardsDiv = document.getElementById('player-cards');
+    const dealerCardsDiv = document.getElementById('dealer-cards');
+    
+    playerCardsDiv.innerHTML = '';
+    dealerCardsDiv.innerHTML = '';
+
     playerCards.forEach(card => {
         const cardElement = createCardElement(card);
-        document.getElementById('player-cards').appendChild(cardElement);
+        playerCardsDiv.appendChild(cardElement);
     });
+
     dealerCards.forEach((card, index) => {
         const cardElement = createCardElement(card);
         if (index === 1 && !isGameOver) {
             cardElement.textContent = '??';
         }
-        document.getElementById('dealer-cards').appendChild(cardElement);
+        dealerCardsDiv.appendChild(cardElement);
     });
+
     document.getElementById('balance').textContent = balance;
 }
 
