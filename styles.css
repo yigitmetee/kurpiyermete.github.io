@@ -83,3 +83,34 @@ button:disabled {
     font-size: 14px;
     margin-left: 10px;
 }
+/* Önceki CSS kodlarınız... */
+
+#game-over-modal {
+    display: none; /* Başlangıçta gizli */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #000;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    z-index: 1000; /* Arka planda flu efekti için yüksek z-index */
+}
+
+#game-over-modal p {
+    margin: 0;
+    font-size: 18px;
+}
+
+#blur-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Flu arka plan için koyu renk */
+    backdrop-filter: blur(5px); /* Arka planı flu yapar */
+    display: none; /* Başlangıçta gizli */
+    z-index: 500; /* Modal'dan önce gelmesini sağlar */
+}
