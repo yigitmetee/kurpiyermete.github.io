@@ -1,4 +1,4 @@
-let balance = 200;
+let balance = 1000;
 let playerCards = [];
 let dealerCards = [];
 let deck = [];
@@ -110,32 +110,22 @@ function endGame(message) {
     document.getElementById('stand-button').disabled = true;
     document.getElementById('place-bet-button').disabled = false;
     updateDisplay();
-
-    if (balance <= 0) {
-        showGameOverModal();
-    }
 }
 
 function updateDisplay() {
-    const playerCardsDiv = document.getElementById('player-cards');
-    const dealerCardsDiv = document.getElementById('dealer-cards');
-    
-    playerCardsDiv.innerHTML = '';
-    dealerCardsDiv.innerHTML = '';
-
+    document.getElementById('player-cards').innerHTML = '';
+    document.getElementById('dealer-cards').innerHTML = '';
     playerCards.forEach(card => {
         const cardElement = createCardElement(card);
-        playerCardsDiv.appendChild(cardElement);
+        document.getElementById('player-cards').appendChild(cardElement);
     });
-
     dealerCards.forEach((card, index) => {
         const cardElement = createCardElement(card);
         if (index === 1 && !isGameOver) {
             cardElement.textContent = '??';
         }
-        dealerCardsDiv.appendChild(cardElement);
+        document.getElementById('dealer-cards').appendChild(cardElement);
     });
-
     document.getElementById('balance').textContent = balance;
 }
 
@@ -167,9 +157,4 @@ function startNewGame() {
     document.getElementById('place-bet-button').disabled = false;
     document.getElementById('result-message').textContent = '';
     currentBet = 0;
-}
-
-function showGameOverModal() {
-    document.getElementById('game-over-modal').style.display = 'block';
-    document.getElementById('blur-background').style.display = 'block';
 }
