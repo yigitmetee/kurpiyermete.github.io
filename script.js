@@ -1,4 +1,4 @@
-let balance = 1000;
+let balance = 200; // Güncellenmiş bakiye
 let playerCards = [];
 let dealerCards = [];
 let deck = [];
@@ -110,6 +110,11 @@ function endGame(message) {
     document.getElementById('stand-button').disabled = true;
     document.getElementById('place-bet-button').disabled = false;
     updateDisplay();
+
+    // Bakiyeyi kontrol et ve gerekli mesajı göster
+    if (balance <= 0) {
+        showGameOverModal();
+    }
 }
 
 function updateDisplay() {
@@ -157,4 +162,9 @@ function startNewGame() {
     document.getElementById('place-bet-button').disabled = false;
     document.getElementById('result-message').textContent = '';
     currentBet = 0;
+}
+
+function showGameOverModal() {
+    document.getElementById('game-over-modal').style.display = 'block';
+    document.getElementById('blur-background').style.display = 'block';
 }
